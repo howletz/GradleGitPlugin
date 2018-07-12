@@ -1,0 +1,4 @@
+rootProject.name = 'git-plugin-all'
+include 'git-plugin-demo'
+include 'git-plugin'
+
