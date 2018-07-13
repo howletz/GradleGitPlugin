@@ -1,16 +1,30 @@
-plugins {
-    id 'java'
+buildscript {
+    dependencies {
+        repositories {
+            mavenLocal()
+            mavenCentral()
+        }
+        classpath 'com.howletz.gradle.plugin:git-plugin:1.1-SNAPSHOT'
+    }
 }
 
-group 'com.howletz.gradle.plugin'
-version '1.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'git-plugin'
 
 sourceCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+
+task testPrintGitInfo << {
+    println project.gitCommitShortId
+    println project.gitLongCommitId
+    println project.gitBranchName
 }

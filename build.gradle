@@ -1,6 +1,4 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
 
 group 'com.howletz.gradle.plugin'
 version '1.0-SNAPSHOT'
