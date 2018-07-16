@@ -1,32 +1,24 @@
+### How to use
+
+```groovy
 buildscript {
     dependencies {
         repositories {
+            ...
             maven {
                 url 'http://nexus.howletz.com/repository/maven-public/'
             }
-            mavenCentral()
         }
         classpath 'com.github.howletz:git-plugin:1.1-RELEASE'
     }
 }
 
-apply plugin: 'java'
 apply plugin: 'git-plugin'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
 
 task testPrintGitInfo << {
     println project.gitCommitShortId
     println project.gitLongCommitId
     println project.gitBranchName
 }
+
+```
